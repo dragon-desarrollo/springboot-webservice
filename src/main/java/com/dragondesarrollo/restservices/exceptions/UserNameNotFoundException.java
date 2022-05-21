@@ -1,10 +1,11 @@
 package com.dragondesarrollo.restservices.exceptions;
 
-public class UsernameExistsException extends Exception {
+public class UserNameNotFoundException extends Exception {
 
 	private static final long serialVersionUID = 1L;
-
-	public UsernameExistsException(String message) {
+	
+	
+	public UserNameNotFoundException(String message) {
 		super(message);
 	}
 }
