@@ -13,34 +13,47 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Éste modelo es para crear un usuario")
 @Entity
 @Table( name = "users")
 public class User {
 	
+	@ApiModelProperty(notes = "ID único y autogenerado", required = true, position = 1)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@ApiModelProperty(notes = "Username único en el sistema", required = true, example = "pantro", position = 2)
+	@Size(min=2, max=50)
 	@NotEmpty(message = "Username es un campo obligatorio. Por favor ingrese un username.")
 	@Column(name = "USER_NAME", length=50, unique = true)
 	private String username;
 	
-	@Size(min=2, message="First Name debe tener al menos 2 caracteres de largo.")
+	@ApiModelProperty(notes = "Nombre del usuario", required = true, position = 3)
+	@Size(min=2, max=50, message="First Name debe tener al menos 2 caracteres de largo.")
 	@Column( name = "FIRST_NAME", length=50, nullable = false)
 	private String firstName;
 	
+	@ApiModelProperty(notes = "Apellido del usuario", required = true, position = 4)
 	@Column( name = "LAST_NAME", length=50, nullable = false)
 	private String lastName;
 	
+	@ApiModelProperty(notes = "Email del usuario", required = true, position = 5)
 	@Column( name = "EMAIL_ADDRESS", length = 50, nullable = false)
 	private String email;
 	
+	@ApiModelProperty(notes = "Role del usuario", required = true, position = 6)
 	@Column( name = "ROLE", length = 50, nullable = false )
 	private String role;
 	
+	@ApiModelProperty(notes = "SSN del usuario", required = true, position = 7)
 	@Column( name = "SSN", length = 50, nullable = false)
 	private String ssn;
 	
+	@ApiModelProperty(notes = "Ordenes creadas por el usuario", required = false, position = 8)
 	@OneToMany(mappedBy = "user")
 	private List<Order> orders;
 
