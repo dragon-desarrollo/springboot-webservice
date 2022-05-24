@@ -43,6 +43,9 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<Order> orders;
+	
+	@Column(name = "ADDRESS")
+	private String address;
 
 	public User() {	}
 	
@@ -50,7 +53,7 @@ public class User {
 		this.id = id;
 	}
 
-	public User(Long id, String username, String firstName, String lastName, String email, String role, String ssn) {
+	public User(Long id, String username, String firstName, String lastName, String email, String role, String ssn, String address) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -60,9 +63,10 @@ public class User {
 		this.role = role;
 		this.ssn = ssn;
 		this.orders = new ArrayList<>();
+		this.address = address;
 	}
 	
-	public User( String username, String firstName, String lastName, String email, String role, String ssn) {
+	public User( String username, String firstName, String lastName, String email, String role, String ssn, String address) {
 		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -70,6 +74,7 @@ public class User {
 		this.role = role;
 		this.ssn = ssn;
 		this.orders = new ArrayList<>();
+		this.address = address;
 	}
 
 	public Long getId() {
@@ -136,14 +141,17 @@ public class User {
 		this.orders = orders;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", role=" + role + ", ssn=" + ssn + "]";
+				+ ", email=" + email + ", role=" + role + ", ssn=" + ssn + ", address=" + address + "]";
 	}
-	
-	
-	
-	
-
 }

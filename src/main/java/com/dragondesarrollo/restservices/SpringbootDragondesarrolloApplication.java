@@ -33,9 +33,9 @@ public class SpringbootDragondesarrolloApplication implements CommandLineRunner 
 	
 	@Override
 	public void run(String... args) throws Exception {
-		User user1 = new User("donDeivid", "David", "Vences", "dvences@gmail.com", "admin", "ssn00001");
-		User user2 = new User("fabi", "Fabiola", "Riquelme", "f.riquelme@gmail.com", "admin", "ssn00002");
-		User user3 = new User("gusgus", "Gustavo", "Gusmán", "gusgus@gmail.com", "admin", "ssn00003");
+		User user1 = new User("donDeivid", "David", "Vences", "dvences@gmail.com", "admin", "ssn00001", "Campeche");
+		User user2 = new User("fabi", "Fabiola", "Riquelme", "f.riquelme@gmail.com", "admin", "ssn00002", "Veracruz");
+		User user3 = new User("gusgus", "Gustavo", "Gusmán", "gusgus@gmail.com", "admin", "ssn00003", "Michoacan");
 		
 		userRepository.save(user1);
 		userRepository.save(user2);
